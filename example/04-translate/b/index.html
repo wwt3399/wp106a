@@ -13,7 +13,8 @@ input { width:400px }
   function mt() {
     var english = document.getElementById('english')
     var chinese = document.getElementById('chinese')
-    var e = english.value.split(/\s+/)
+    var e = english.value.split(/\s+/)  //用/**/括起来即是正规表达式，\s即是空白字段，+即是指若出现了一次以上，那些一样的也要算入，这里则是一连串的空白字段，并用split来通过空白切割字段
+    //在正规表达式中\d指的是数字，在括后面加g则是全部的意思
     var c = []
     for (var i=0; i < e.length; i++) {
       c.push(e2c[e[i]])

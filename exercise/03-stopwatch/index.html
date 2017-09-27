@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+input { width:30px }      
+    </style>
+    <title>码表 stopwatch</title>
+  </head>
+  <body>
+<script>
+  var counter = 10;
+  var state = "init"
+function showCounter() {
+  var counterLabel = document.getElementById('counter')
+  counterLabel.innerText = counter
+  if(state === "start") counter --
+  if (counter >= 0)
+  setTimeout(showCounter, 1000);
+  else{
+    document.getElementById("message").innerText = "Time's up"
+    counter = 10
+    counterLabel.innerText = counter
+  }
+}
+function toggle(){
+  if (state === "init"){
+    setTimeout(showCounter,1000)
+    state = "start"
+  }
+  else{
+    stateToggle()
+  }
+  document.getElementById("toggle").innerText = (state==="stop")?"start":"stop"//?即是if else的简写，如果前面的条件成立，则变成start，如果不成立，则变成stop
+}
+
+function stateToggle(){
+  state = (state==="stop")?"start":"stop"
+}
+</script> 
+  <center>   
+    <label id="counter">10</label><br/>
+    <button id="toggle" onclick="toggle()">start</button><br/>
+    <label id="message"></label>
+  </center>
+  </body>
+</html>

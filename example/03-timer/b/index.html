@@ -12,7 +12,7 @@ input { width:30px }
 function lpad(s, len) {
   var spad = "0000000000000000000" + s
   return spad.substring(spad.length - len)
-}
+} //substring是截取字串的指令，此处是从第（长度-len）开始截取，比如有10的长度，-2即是8，则截取的字段就是第9位和第10位（开头不计结尾计）
 function printTime() {
   var time = document.getElementById('time')
   var d = new Date()
