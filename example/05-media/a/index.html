@@ -9,14 +9,17 @@
 </script>
 <script>
 function OpenFile() {
-  const {dialog} = require('electron').remote
+  const {dialog} = require('electron').remote//意在将electron物件中的dialog提取，并用dialog这个词来指代，可以像下面的写法一样，，下面的写法中加入的app也是remote中的物件，三行的第一行的意思和后两行的意思相同
+  /*const {dialog, app} = require('electron').remote
+  var dialog = require('electron').remote.dialog
+  var app = require('electron').remote.app*/
   var file = dialog.showOpenDialog(
       function (fileName) {
         if(fileName === undefined){
             alert("No file selected")
             return
         }
-        var filePath = document.getElementById('filePath') 
+        var filePath = document.getElementById('filePath') //let可以保证先宣告先使用，而不是像var后宣告，但会先使用
         filePath.innerText = fileName
         var videoControl = document.getElementById('videoControl')
         videoControl.setAttribute("src", fileName)
@@ -24,6 +27,8 @@ function OpenFile() {
     )
   console.log('file=' , file)
 }
+//vw和vh是相对于视口（viewport，也可以叫做视区、视界或可视范围）的宽度和高度。1vw等于视口宽度（viewport width）的百分之一，也就是说100vw就是视口的宽度。同理，1vh等于视口高度（viewport height）的百分之一。
+//若video无法显现视频，则会直接显示文字档，这就是那段文字的功能
 </script>
   <button onclick="OpenFile()">OpenFile</button>
   <label id="filePath"></label><br/>

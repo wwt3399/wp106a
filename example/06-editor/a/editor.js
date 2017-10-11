@@ -1,4 +1,4 @@
-const {Menu, dialog} = require('electron').remote
+const {Menu, dialog} = require('electron').remote //一般网页内要加remote
 const fs = require('fs')
 
 const template = [
@@ -35,7 +35,9 @@ const template = [
           var fileName = document.getElementById('filePath').innerText
           if (fileName.trim().length === 0) window.alert('No file loaded!')
           var text = document.getElementById('text')
-          fs.writeFile(fileName, text.value)
+          fs.writeFile(fileName, text.value)// 写入文件内容（如果文件不存在会创建一个文件）
+                                            // 写入时会先清空文件
+
         }
       }
     ]
@@ -45,7 +47,7 @@ const template = [
     submenu: [
       { role: 'undo' },
       { role: 'redo' },
-      { type: 'separator' },
+      { type: 'separator' },//此为分割线，role则是原本就有预设的功能
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' }
