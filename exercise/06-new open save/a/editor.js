@@ -16,6 +16,26 @@ const template = [
         }
       },
       {
+        label: 'markdown查看',
+        click: function () {
+        var marked = require('marked');
+        marked.setOptions({
+            renderer: new marked.Renderer(),
+            gfm: true,
+            tables: true,
+            breaks: false,
+            pedantic: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false
+});
+        var text = document.getElementById('text')
+        console.log(marked(text.value))
+
+        }
+
+      },
+      {
         label: 'Open',
         accelerator: 'CmdOrCtrl+O',
         click: function () {
@@ -56,8 +76,7 @@ const template = [
           function (fileName) {
             var text = document.getElementById('text')
             fs.writeFile(fileName, text.value)
-            }
-          )
+            })
         }
       },
     ]
