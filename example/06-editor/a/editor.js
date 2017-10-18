@@ -10,6 +10,7 @@ const template = [
         accelerator: 'CmdOrCtrl+O',
         click: function () {
           dialog.showOpenDialog(
+            //此处的括号中的filename指函数的变数
             function (fileName) {
               if (fileName === undefined) {
                 console.log('No file selected')

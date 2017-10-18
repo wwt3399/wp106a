@@ -9,6 +9,8 @@ const template = [
         label: '开启新档',
         accelerator: 'CmdOrCtrl+n',
         click: function () {
+          var filePath = document.getElementById('filePath')
+          filePath.innerText = ''
           var text = document.getElementById('text')
           text.value = ''
         }
