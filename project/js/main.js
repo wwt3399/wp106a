@@ -10,9 +10,9 @@ var chessBoard = []     //棋盘以二维阵列的形式展开，并存储数据
 //此处ai先下棋，则初始化棋盘后先将棋子落于接近中心的（7，7）位置
 
 function startGame(){
-    for(var i=0;i<15;i++){
+    for(var i = 0;i < 15;i++){
         chessBoard[i] = []
-        for(var j = 0;j<15;j++){
+        for(var j = 0;j < 15;j++){
             chessBoard[i][j] = 0;
             //此处将棋盘设置为15*15格式，并初始化
         }
@@ -61,7 +61,7 @@ function drawChess(){
     //制作棋子
 function oneStep(i, j ,me) {
     context.beginPath();
-    context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI);  //绘制
+    context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI);  //arc函数绘制
     context.closePath();
     var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 13, 15 + i * 30 + 2, 15 + j * 30 - 2, 0);      //设置渐变
     if (me) {
@@ -107,6 +107,10 @@ canvas.onclick = function(e){
                     over = true
                 }
             }
+        }
+        if(!over){
+            me = !me
+            aiGo()
         }
     }
 }
