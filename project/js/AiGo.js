@@ -1,7 +1,7 @@
-var wins = [];      // 赢法统计数组
-var count = 0;      // 赢法统计数组的计数器
+var wins = [];      // 赢法统计阵列
+var count = 0;      // 赢法统计阵列的计数器
 
-// 初始化赢法统计数组
+// 初始化赢法统计阵列
 for (var i = 0; i < 15; i++) {
     wins[i] = [];
     for (var j = 0; j < 15; j++) {
@@ -64,7 +64,7 @@ function aiGo() {
     var aiScore = [];   // 电脑的分数
     var max = 0;            // 最优位置的分数
 
-    // 初始化分数的二维数组
+    // 初始化分数的二维阵列
     for (var i = 0; i < 15; i++) {
         myScore[i] = [];
         aiScore[i] = [];
@@ -74,7 +74,7 @@ function aiGo() {
         }
     }
 
-    // 通过赢法统计阵列为两个二维数组分别计分
+    // 通过赢法统计阵列为两个二维阵列分别计分
     for (var i = 0; i < 15; i++) {
         for (var j = 0; j < 15; j++) {
             if (chessBoard[i][j] == 0) {
